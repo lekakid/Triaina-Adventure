@@ -10,32 +10,44 @@ public class GameManager : MonoBehaviour {
     [Header("Data Container")]
 	[SerializeField] ScoreManager ScoreManager;
 
-    bool isPause;
+    enum GameState { INIT, PLAY, PAUSE, GAMEOVER }
+    GameState State;
+
+    void Start() {
+        Time.timeScale = 0f;
+    }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            if(isPause) {
+            if(State == GameState.PAUSE) {
                 Resume();
-                ResumeEvent.Dispatch();
             }
-            else {
+            else if(State == GameState.PLAY) {
                 Pause();
-                PauseEvent.Dispatch();
             }
         }
     }
 
+    public void GameStart() {
+        Time.timeScale = 1f;
+        State = GameState.PLAY;
+    }
+
     public void Pause() {
         Time.timeScale = 0f;
-        isPause = true;
+        State = GameState.PAUSE;
+        PauseEvent.Dispatch();
     }
 
     public void Resume() {
         Time.timeScale = 1f;
-        isPause = false;
+        State = GameState.PLAY;
+        ResumeEvent.Dispatch();
     }
 
-    public void OnGameOver() {
+    public void GameOver() {
+        Time.timeScale = 0f;
+        State = GameState.GAMEOVER;
         ScoreManager.SaveHighScore();
     }
 }
