@@ -10,9 +10,6 @@ public class Obstacle : MonoBehaviour {
     [Header("Data Container")]
     [SerializeField] ScoreManager ScoreManager;
 
-    [Header("Events")]
-    [SerializeField] GameEventSO ChangeScoreEvent;
-
     ObstaclePool obstaclePool;
 
     float holeHeight;
@@ -41,7 +38,6 @@ public class Obstacle : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag("Player")) {
             ScoreManager.AddScore();
-            ChangeScoreEvent.Dispatch();
         }
     }
 

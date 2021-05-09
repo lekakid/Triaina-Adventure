@@ -159,7 +159,6 @@ MonoBehaviour:
   UpsideRenderer: {fileID: 6466524108869780741}
   DownsideRenderer: {fileID: 6466524108082682629}
   ScoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
-  ChangeScoreEvent: {fileID: 11400000, guid: 0a13cc24843ba3441a7b4f285ba61d34, type: 2}
 --- !u!114 &2202692828688252149
 MonoBehaviour:
   m_ObjectHideFlags: 0
