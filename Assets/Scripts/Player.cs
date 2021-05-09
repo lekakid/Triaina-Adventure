@@ -24,21 +24,17 @@ public class Player : MonoBehaviour
         defaultPos = transform.position;
     }
 
-    void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape)) return;
-
-        if(Input.anyKeyDown) {
-            rigidbody.velocity = Vector2.up * jumpPower;
-        }
-    }
-
     void OnCollisionEnter2D(Collision2D other) {
         if(other.collider.CompareTag("Obstacle")) {
             GameOverEvent.Dispatch();
         }
     }
 
-    public void OnStart() {
+    public void Reset() {
         transform.position = defaultPos;
+    }
+
+    public void Jump() {
+        rigidbody.velocity = Vector2.up * jumpPower;
     }
 }
