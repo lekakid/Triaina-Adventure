@@ -15,8 +15,8 @@ public class GameEventSO : ScriptableObject {
     }
 
 	public void Dispatch() {
-        foreach(GameEventListener listener in listeners) {
-            listener.InvokeCallback();
+        for(int i = listeners.Count - 1; i >= 0; i--) {
+            listeners[i].InvokeCallback();
         }
     }
 }
