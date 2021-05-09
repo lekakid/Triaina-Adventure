@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
     [Header("Events")]
     [SerializeField] GameEventSO PauseEvent;
     [SerializeField] GameEventSO ResumeEvent;
+    [SerializeField] GameEventSO ChangeScoreEvent;
 
     [Header("Data Container")]
 	[SerializeField] ScoreManager ScoreManager;
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour {
     public void GameStart() {
         Time.timeScale = 1f;
         State = GameState.PLAY;
+        ScoreManager.ResetScore();
+        ChangeScoreEvent.Dispatch();
     }
 
     public void Pause() {

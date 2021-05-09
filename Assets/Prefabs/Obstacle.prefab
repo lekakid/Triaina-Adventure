@@ -118,6 +118,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6466524108447747347}
   - component: {fileID: 6187266160721881590}
+  - component: {fileID: 2202692828688252149}
+  - component: {fileID: 4531215354820707008}
   - component: {fileID: 2829466446495323808}
   m_Layer: 0
   m_Name: Obstacle
@@ -156,6 +158,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpsideRenderer: {fileID: 6466524108869780741}
   DownsideRenderer: {fileID: 6466524108082682629}
+  ScoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
+  ChangeScoreEvent: {fileID: 11400000, guid: 0a13cc24843ba3441a7b4f285ba61d34, type: 2}
+--- !u!114 &2202692828688252149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466524108447747344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95696bb8e027eb4e82e590a5fa1e39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventSO: {fileID: 11400000, guid: 667723b4f6d451d41b8feb507d5f8d55, type: 2}
+  EventCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2829466446495323808}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &4531215354820707008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466524108447747344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95696bb8e027eb4e82e590a5fa1e39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventSO: {fileID: 11400000, guid: 3267ebda7888f0340b6b0d159bb341fe, type: 2}
+  EventCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2829466446495323808}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &2829466446495323808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,7 +227,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -180,7 +238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &6466524108869780739
 GameObject:

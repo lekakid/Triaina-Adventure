@@ -11,6 +11,11 @@ public class ScoreManager : ScriptableObject {
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
+    void OnDisable() {
+        Score = 0;
+        HighScore = 0;
+    }
+
     public void AddScore() {
         Score += 1;
         if(Score > HighScore) {
