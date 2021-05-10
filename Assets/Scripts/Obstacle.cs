@@ -13,16 +13,11 @@ public class Obstacle : MonoBehaviour {
     ObstaclePool obstaclePool;
 
     float holeHeight;
-    float minY;
-    float maxY;
 
     bool isMove;
 
     void Awake() {
         holeHeight = UpsideRenderer.bounds.min.y - DownsideRenderer.bounds.max.y;
-
-        minY = 0f + holeHeight * 0.5f;
-        maxY = Camera.main.orthographicSize * 2f - holeHeight * 0.5f;
     }
 
     void Update() {
@@ -48,9 +43,14 @@ public class Obstacle : MonoBehaviour {
     }
 
     public void SetRandomPosition() {
+        float minY = obstaclePool.ObstacleMinY + holeHeight * 0.5f;
+        float maxY = obstaclePool.ObstacleMaxY - holeHeight * 0.5f;
+        float half = (maxY - minY) * 0.5f;
+
+        float calibrateMinY = Mathf.Max(obstaclePool.lastHeight - half, minY);
+        float calibrateMaxY = Mathf.Min(obstaclePool.lastHeight + half, maxY);
+
         float posX = transform.position.x;
-        float calibrateMinY = Mathf.Max(obstaclePool.lastHeight - Camera.main.orthographicSize, minY);
-        float calibrateMaxY = Mathf.Min(obstaclePool.lastHeight + Camera.main.orthographicSize, maxY);
         float posY = Random.Range(calibrateMinY, calibrateMaxY);
 
         transform.position = new Vector2(posX, posY);

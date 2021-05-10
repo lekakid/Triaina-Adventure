@@ -11,9 +11,13 @@ public class ObstaclePool : MonoBehaviour {
     [SerializeField] float ObstacleReleaseTime = 1f;
     [SerializeField, Range(1f, 20f)] float _obstacleSpeed = 16f;
     [SerializeField] float _obstacleBorderX = -12f;
+    [SerializeField, Range(8f, 16f)] float _obstacleMaxY = 16f;
+    [SerializeField, Range(0f, 8f)] float _obstacleMinY = 0f;
 
     public float ObstacleSpeed { get { return _obstacleSpeed; } }
     public float ObstacleBorderX { get { return _obstacleBorderX; } }
+    public float ObstacleMaxY { get { return _obstacleMaxY; } }
+    public float ObstacleMinY { get { return _obstacleMinY; } }
     public float lastHeight { get; private set; }
 
     Queue<Obstacle> pool = new Queue<Obstacle>();
