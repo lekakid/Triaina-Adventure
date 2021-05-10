@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371e72b7eb990ef40a59c726e4ccbc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 18
+  jumpPower: 15
   GameOverEvent: {fileID: 11400000, guid: 3267ebda7888f0340b6b0d159bb341fe, type: 2}
 --- !u!50 &1583881015
 Rigidbody2D:
@@ -774,7 +774,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1304,9 +1304,11 @@ MonoBehaviour:
   ObstaclePrefab: {fileID: 6466524108447747344, guid: 14fbc26638801014983399f070de27df,
     type: 3}
   PoolCount: 4
-  ObstacleReleaseTime: 1
-  _obstacleSpeed: 8
+  ObstacleReleaseTime: 1.25
+  _obstacleSpeed: 6
   _obstacleBorderX: -2
+  _obstacleMaxY: 15
+  _obstacleMinY: 2
 --- !u!4 &2042640051
 Transform:
   m_ObjectHideFlags: 0
