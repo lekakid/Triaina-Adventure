@@ -41,6 +41,12 @@ public class ObstaclePool : MonoBehaviour {
         }
     }
 
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(new Vector2(0, _obstacleMaxY), Vector2.right * 9f);
+        Gizmos.DrawRay(new Vector2(0, _obstacleMinY), Vector2.right * 9f);
+    }
+
     public void ReleaseObstacle() {
         Obstacle obstacle = pool.Dequeue();
         obstacle.SetRandomPosition();
