@@ -33,6 +33,8 @@ public class ObstaclePool : MonoBehaviour {
     }
 
     void Update() {
+        if(GameManager.State != GameManager.GameState.PLAY) return;
+
         accumulateReleaseTime += Time.deltaTime;
 
         if(accumulateReleaseTime >= ObstacleReleaseTime) {

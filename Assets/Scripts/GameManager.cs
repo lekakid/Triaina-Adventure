@@ -9,14 +9,14 @@ public class GameManager : MonoBehaviour {
     public enum GameState { INIT, PLAY, PAUSE, GAMEOVER }
     public static GameState State { get; private set; }
 
-    void Start() {
-        Time.timeScale = 0f;
+    public void Initialize() {
+        Time.timeScale = 1f;
+        State = GameState.INIT;
+        ScoreManager.ResetScore();
     }
 
     public void GameStart() {
-        Time.timeScale = 1f;
         State = GameState.PLAY;
-        ScoreManager.ResetScore();
     }
 
     public void Pause() {
