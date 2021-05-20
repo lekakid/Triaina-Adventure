@@ -6,32 +6,42 @@ public class GameManager : MonoBehaviour {
     [Header("Data Container")]
 	[SerializeField] ScoreManager ScoreManager;
 
-    public enum GameState { INIT, PLAY, PAUSE, GAMEOVER }
+    public enum GameState { TITLE, INIT, PLAY, PAUSE, GAMEOVER }
     public static GameState State { get; private set; }
+    public static GameState PrevState { get; private set; }
+
+    void SetState(GameState nextState) {
+        PrevState = State;
+        State = nextState;
+    }
 
     public void Initialize() {
         Time.timeScale = 1f;
-        State = GameState.INIT;
+        SetState(GameState.INIT);
         ScoreManager.ResetScore();
     }
 
     public void GameStart() {
-        State = GameState.PLAY;
+        SetState(GameState.PLAY);
     }
 
     public void Pause() {
         Time.timeScale = 0f;
-        State = GameState.PAUSE;
+        SetState(GameState.PAUSE);
     }
 
     public void Resume() {
         Time.timeScale = 1f;
-        State = GameState.PLAY;
+        SetState(GameState.PLAY);
     }
 
     public void GameOver() {
         Time.timeScale = 0f;
-        State = GameState.GAMEOVER;
+        SetState(GameState.GAMEOVER);
         ScoreManager.SaveHighScore();
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 }
