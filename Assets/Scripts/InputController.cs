@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputController : MonoBehaviour {
     [Header("Events")]
+    [SerializeField] GameEventSO TitleEvent;
+    [SerializeField] GameEventSO InitializeEvent;
+    [SerializeField] GameEventSO StartEvent;
     [SerializeField] GameEventSO PauseEvent;
     [SerializeField] GameEventSO ResumeEvent;
 
@@ -14,17 +18,74 @@ public class InputController : MonoBehaviour {
     }
 
 	void Update() {
+        if(Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject()) return;
+
+        switch(GameManager.State) {
+            case GameManager.GameState.TITLE:
+            OnTitle();
+            break;
+            case GameManager.GameState.INIT:
+            OnInit();
+            break;
+            case GameManager.GameState.PLAY:
+            OnPlay();
+            break;
+            case GameManager.GameState.PAUSE:
+            OnPause();
+            break;
+            case GameManager.GameState.GAMEOVER:
+            OnGameOver();
+            break;
+        }
+    }
+
+    void OnTitle() {
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            if(GameManager.State == GameManager.GameState.PLAY) {
-                PauseEvent.Dispatch();
-            }
-            else if(GameManager.State == GameManager.GameState.PAUSE) {
-                ResumeEvent.Dispatch();
-            }
+            PauseEvent.Dispatch();
+            return;
+        }
+
+        if(Input.anyKeyDown) {
+            InitializeEvent.Dispatch();
+        }
+    }
+
+    void OnInit() {
+        if(Input.GetKeyDown(KeyCode.Escape)) return;
+
+        if(Input.anyKeyDown) {
+            StartEvent.Dispatch();
+        }
+    }
+
+    void OnPlay() {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            PauseEvent.Dispatch();
+            return;
         }
 
         if(Input.anyKeyDown) {
             player.Jump();
+        }
+    }
+
+    void OnPause() {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            if(GameManager.PrevState == GameManager.GameState.TITLE) {
+                TitleEvent.Dispatch();
+            }
+            if(GameManager.PrevState == GameManager.GameState.INIT) {
+                InitializeEvent.Dispatch();
+            }
+            if(GameManager.PrevState == GameManager.GameState.PLAY) {
+                ResumeEvent.Dispatch();
+            }
+        }
+    }
+
+    void OnGameOver() {
+        if(Input.anyKeyDown) {
+            InitializeEvent.Dispatch();
         }
     }
 }

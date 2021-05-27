@@ -9,6 +9,7 @@ public class Option : MonoBehaviour {
     public Slider SFXSlider;
 
     [Header("Events")]
+    public GameEventSO TitleEvent;
     public GameEventSO InitializeEvent;
     public GameEventSO ResumeEvent;
 
@@ -21,6 +22,9 @@ public class Option : MonoBehaviour {
     }
 
     public void ClickOnResume() {
+        if(GameManager.PrevState == GameManager.GameState.TITLE) {
+            TitleEvent.Dispatch();
+        }
         if(GameManager.PrevState == GameManager.GameState.INIT) {
             InitializeEvent.Dispatch();
         }
