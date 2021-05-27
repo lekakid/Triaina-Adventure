@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [Header("Events")]
     [SerializeField] GameEventSO GameOverEvent;
 
+    [Header("Objects")]
+    [SerializeField] SoundManager SoundManager;
+
     // Component
     new Rigidbody2D rigidbody;
 
@@ -35,6 +38,14 @@ public class Player : MonoBehaviour
     }
 
     public void Jump() {
+        if(!rigidbody.simulated) return;
+        
         rigidbody.velocity = Vector2.up * jumpPower;
+        PlayRandomJumpSFX();
+    }
+
+    void PlayRandomJumpSFX() {
+        int r = Random.Range(1, 6);
+        SoundManager.PlaySFX($"Jump{r}");
     }
 }

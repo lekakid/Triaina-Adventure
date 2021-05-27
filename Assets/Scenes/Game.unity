@@ -3899,7 +3899,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMList: []
-  SFXList: []
+  SFXList:
+  - {fileID: 8300000, guid: b24049d1908d22b4f995b694c26e9c36, type: 3}
+  - {fileID: 8300000, guid: f943fbdbad3bc794c89cacfde4fbf1ce, type: 3}
+  - {fileID: 8300000, guid: ef659685891e70b46a9c2fd5eaefee75, type: 3}
+  - {fileID: 8300000, guid: f47cec03e281fc9499deae565651e05f, type: 3}
+  - {fileID: 8300000, guid: 238cdfe038b80b541a0074cc6a4481f4, type: 3}
+  - {fileID: 8300000, guid: ed667dee365bc2a45997fa553d7c3ec8, type: 3}
+  - {fileID: 8300000, guid: 7525e2e39ef736a408122a0abcd0db1b, type: 3}
 --- !u!4 &1353938715
 Transform:
   m_ObjectHideFlags: 0
@@ -4151,6 +4158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpPower: 15
   GameOverEvent: {fileID: 11400000, guid: 3267ebda7888f0340b6b0d159bb341fe, type: 2}
+  SoundManager: {fileID: 1353938714}
 --- !u!50 &1583881015
 Rigidbody2D:
   serializedVersion: 4
@@ -4264,6 +4272,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1583881014}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1583881019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4333,6 +4352,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1353938714}
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gameover
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1583881022
