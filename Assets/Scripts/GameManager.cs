@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    [Header("Events")]
+    [SerializeField] GameEventSO TitleEvent;
+
     [Header("Data Container")]
 	[SerializeField] ScoreManager ScoreManager;
 
     public enum GameState { TITLE, INIT, PLAY, PAUSE, GAMEOVER }
     public static GameState State { get; private set; }
     public static GameState PrevState { get; private set; }
+
+    void Start() {
+        TitleEvent.Dispatch();
+    }
 
     void SetState(GameState nextState) {
         PrevState = State;
