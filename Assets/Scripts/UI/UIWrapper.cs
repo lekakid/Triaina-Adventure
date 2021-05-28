@@ -6,7 +6,8 @@ public class UIWrapper : MonoBehaviour {
     public bool onAwakeActive;
 
     void Awake() {
-        transform.position = new Vector2(4.5f, 8f);
+        RectTransform rect = GetComponent<RectTransform>();
+        rect.anchoredPosition = Vector2.zero;
         gameObject.SetActive(onAwakeActive);
     }
 }
