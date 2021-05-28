@@ -28,7 +28,13 @@ public class GameManager : MonoBehaviour {
         ScoreManager.ResetScore();
     }
 
+    public void Title() {
+        Time.timeScale = 1f;
+        SetState(GameState.TITLE);
+    }
+
     public void GameStart() {
+        Time.timeScale = 1f;
         SetState(GameState.PLAY);
     }
 

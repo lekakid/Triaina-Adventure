@@ -18,7 +18,7 @@ public class InputController : MonoBehaviour {
     }
 
 	void Update() {
-        if(Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject()) return;
+        if(Input.touchCount > 0 || Input.GetMouseButtonDown(0)) return;
 
         switch(GameManager.State) {
             case GameManager.GameState.TITLE:
