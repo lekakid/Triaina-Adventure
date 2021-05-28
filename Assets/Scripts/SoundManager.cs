@@ -47,6 +47,8 @@ public class SoundManager : MonoBehaviour {
     public void PlayBGM(string name) {
         AudioClip clip;
         if(bgmDic.TryGetValue(name, out clip)) {
+            if(bgmSource.clip == clip) return;
+            
             bgmSource.clip = clip;
             bgmSource.Play();
         }
