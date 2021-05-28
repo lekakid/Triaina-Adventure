@@ -51,7 +51,10 @@ public class InputController : MonoBehaviour {
     }
 
     void OnInit() {
-        if(Input.GetKeyDown(KeyCode.Escape)) return;
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            PauseEvent.Dispatch();
+            return;
+        }
 
         if(Input.anyKeyDown) {
             StartEvent.Dispatch();
