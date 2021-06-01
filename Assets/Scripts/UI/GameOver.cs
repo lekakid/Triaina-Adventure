@@ -39,20 +39,27 @@ public class GameOver : MonoBehaviour {
             Gold.SetActive(true);
             ScoreText.colorGradientPreset = GoldGradient;
             ScoreText.fontMaterial = GoldOutline;
-            BestScoreText.colorGradientPreset = GoldGradient;
-            BestScoreText.fontMaterial = GoldOutline;
         }
         else if(score >= GameManager.SilverScore) {
             Silver.SetActive(true);
             ScoreText.colorGradientPreset = SilverGradient;
             ScoreText.fontMaterial = SilverOutline;
-            BestScoreText.colorGradientPreset = SilverGradient;
-            BestScoreText.fontMaterial = SilverOutline;
         }
         else if(score >= GameManager.BronzeScore) {
             Bronze.SetActive(true);
             ScoreText.colorGradientPreset = BronzeGradient;
             ScoreText.fontMaterial = BronzeOutline;
+        }
+
+        if(bestScore >= GameManager.GoldScore) {
+            BestScoreText.colorGradientPreset = GoldGradient;
+            BestScoreText.fontMaterial = GoldOutline;
+        }
+        else if(bestScore >= GameManager.SilverScore) {
+            BestScoreText.colorGradientPreset = SilverGradient;
+            BestScoreText.fontMaterial = SilverOutline;
+        }
+        else if(bestScore >= GameManager.BronzeScore) {
             BestScoreText.colorGradientPreset = BronzeGradient;
             BestScoreText.fontMaterial = BronzeOutline;
         }
