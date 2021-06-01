@@ -10,7 +10,7 @@ public class ScoreManager : ScriptableObject {
 
     UnityEvent OnScoreChange = new UnityEvent();
 
-    void Awake() {
+    void OnEnable() {
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
