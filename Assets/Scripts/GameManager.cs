@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    [Header("Settings")]
+    [SerializeField] int _endingScore = 100;
+    public static int EndingScore;
+    [SerializeField] int _goldScore = 100;
+    public static int GoldScore;
+    [SerializeField] int _silverScore = 70;
+    public static int SilverScore;
+    [SerializeField] int _bronzeScore = 30;
+    public static int BronzeScore;
+
     [Header("Events")]
     [SerializeField] GameEventSO TitleEvent;
 
@@ -12,6 +22,13 @@ public class GameManager : MonoBehaviour {
     public enum GameState { TITLE, INIT, PLAY, PAUSE, GAMEOVER }
     public static GameState State { get; private set; }
     public static GameState PrevState { get; private set; }
+
+    void Awake() {
+        EndingScore = _endingScore;
+        GoldScore = _goldScore;
+        SilverScore = _silverScore;
+        BronzeScore = _bronzeScore;
+    }
 
     void Start() {
         TitleEvent.Dispatch();

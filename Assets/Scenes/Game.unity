@@ -671,6 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204912999}
   - component: {fileID: 204912998}
+  - component: {fileID: 204913001}
   - component: {fileID: 204913000}
   m_Layer: 5
   m_Name: Wrapper
@@ -737,6 +738,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &204913001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204912997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b992e03304a4241a8cf9a4b6a900fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gold: {fileID: 132802002}
+  Silver: {fileID: 1700400733}
+  Bronze: {fileID: 63754455}
+  ScoreText: {fileID: 2039229429}
+  BestScoreText: {fileID: 1373520343}
+  ScoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
+  InputUnlockEvent: {fileID: 11400000, guid: 3925d2c99be1c554482d042dba3d8a05, type: 2}
+  GoldGradient: {fileID: 11400000, guid: dafa45482be1c1048b8581de31731397, type: 2}
+  SilverGradient: {fileID: 11400000, guid: b9778943ba8fda848a1b9766b152d71d, type: 2}
+  BronzeGradient: {fileID: 11400000, guid: 9f0150cfd4c55c64f91582f5063b2c60, type: 2}
+  GoldOutline: {fileID: 2100000, guid: b43d35e7dc64d87459421f54eb130480, type: 2}
+  SilverOutline: {fileID: 2100000, guid: 7896ffc9154fb06499ac68720287ed76, type: 2}
+  BronzeOutline: {fileID: 2100000, guid: 6b0cc40acbbd11b4f83ca10204c7c499, type: 2}
 --- !u!1 &224503954
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,6 +7358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2981a693c9694439d67d1e30ee059a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _endingScore: 70
+  _goldScore: 70
+  _silverScore: 30
+  _bronzeScore: 0
   TitleEvent: {fileID: 11400000, guid: 030f8ccf166c86f43843ccbc23c02a51, type: 2}
   ScoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
 --- !u!4 &774154528
@@ -9534,7 +9564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1234
+  m_text: 0000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 49183b1463447dc4ab6d42c9188e745a, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: b43d35e7dc64d87459421f54eb130480, type: 2}
@@ -9872,6 +9902,7 @@ GameObject:
   - component: {fileID: 1583881022}
   - component: {fileID: 1583881018}
   - component: {fileID: 1583881021}
+  - component: {fileID: 1583881023}
   - component: {fileID: 1583881016}
   - component: {fileID: 1583881015}
   - component: {fileID: 8873686324687666143}
@@ -10155,6 +10186,33 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Default
           m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1583881023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583881013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95696bb8e027eb4e82e590a5fa1e39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventSO: {fileID: 11400000, guid: 3925d2c99be1c554482d042dba3d8a05, type: 2}
+  EventCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1583881019}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1602766715
 GameObject:
@@ -11996,6 +12054,17 @@ MonoBehaviour:
   EventCallback:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 204913001}
+        m_MethodName: SetResult
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 204912997}
         m_MethodName: SetActive
         m_Mode: 6
