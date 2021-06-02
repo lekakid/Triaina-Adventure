@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour {
     [Header("Child Object")]
 	[SerializeField] SpriteRenderer UpsideRenderer;
 	[SerializeField] SpriteRenderer DownsideRenderer;
+    [SerializeField] GameObject Gem;
 
     [Header("Data Container")]
     [SerializeField] ScoreManager ScoreManager;
@@ -35,6 +36,7 @@ public class Obstacle : MonoBehaviour {
         
         if(other.CompareTag("Player")) {
             ScoreManager.AddScore();
+            Gem.SetActive(false);
         }
     }
 
@@ -66,6 +68,7 @@ public class Obstacle : MonoBehaviour {
 
     public void Reset() {
         transform.position = obstaclePool.transform.position;
+        Gem.SetActive(true);
         isMove = false;
     }
 }
