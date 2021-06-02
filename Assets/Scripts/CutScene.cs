@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Opening : MonoBehaviour {
+public class CutScene : MonoBehaviour {
     [SerializeField] GameEventSO InputBlockEvent;
     [SerializeField] GameEventSO InputUnblockEvent;
-    [SerializeField] GameEventSO InitializeEvent;
+
+    [SerializeField] UnityEvent OnHide;
 
     Animator animator;
 
@@ -13,13 +15,13 @@ public class Opening : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-    public void SetVisit() {
-        PlayerPrefs.SetInt("OpeningVisited", 1);
+    public void SetVisit(string type) {
+        PlayerPrefs.SetInt($"{type}Visited", 1);
     }
 
     public void Hide() {
         gameObject.SetActive(false);
-        InitializeEvent.Dispatch();
+        OnHide.Invoke();
     }
 
     public void NextScene() {

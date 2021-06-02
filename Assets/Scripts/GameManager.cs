@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     [Header("Data Container")]
 	[SerializeField] ScoreManager ScoreManager;
 
-    public enum GameState { TITLE, OPENING, INIT, PLAY, PAUSE, GAMEOVER }
+    public enum GameState { TITLE, OPENING, INIT, PLAY, PAUSE, ENDING, GAMEOVER }
     public static GameState State { get; private set; }
     public static GameState PrevState { get; private set; }
 
@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour {
     
     public void Opening() {
         SetState(GameState.OPENING);
+    }
+
+    public void Ending() {
+        Time.timeScale = 0f;
+        SetState(GameState.ENDING);
     }
 
     public void GameStart() {

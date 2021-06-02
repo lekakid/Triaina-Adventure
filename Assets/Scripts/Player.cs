@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] GameEventSO GameOverEvent;
+    [SerializeField] GameEventSO EndingEvent;
 
     [Header("Objects")]
     [SerializeField] SoundManager SoundManager;
+    [SerializeField] ScoreManager ScoreManager;
 
     // Component
     new Rigidbody2D rigidbody;
@@ -29,7 +31,12 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) {
         if(other.collider.CompareTag("Obstacle")) {
-            GameOverEvent.Dispatch();
+            if(PlayerPrefs.GetInt("EndingVisited", 0) == 0 && ScoreManager.Score >= GameManager.EndingScore) {
+                EndingEvent.Dispatch();
+            }
+            else {
+                GameOverEvent.Dispatch();
+            }
         }
     }
 

@@ -26,6 +26,7 @@ public class InputController : MonoBehaviour {
             OnTitle();
             break;
             case GameManager.GameState.OPENING:
+            case GameManager.GameState.ENDING:
             OnCutScene();
             break;
             case GameManager.GameState.INIT:
@@ -99,6 +100,7 @@ public class InputController : MonoBehaviour {
     void OnCutScene() {
         if(Input.anyKeyDown) {
             NextCutEvent.Dispatch();
+            enabled = false;
         }
     }
 }
