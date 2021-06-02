@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour {
     [SerializeField] GameEventSO StartEvent;
     [SerializeField] GameEventSO PauseEvent;
     [SerializeField] GameEventSO ResumeEvent;
+    [SerializeField] GameEventSO NextCutEvent;
 
     Player player;
 
@@ -23,6 +24,9 @@ public class InputController : MonoBehaviour {
         switch(GameManager.State) {
             case GameManager.GameState.TITLE:
             OnTitle();
+            break;
+            case GameManager.GameState.OPENING:
+            OnCutScene();
             break;
             case GameManager.GameState.INIT:
             OnInit();
@@ -89,6 +93,12 @@ public class InputController : MonoBehaviour {
     void OnGameOver() {
         if(Input.anyKeyDown) {
             InitializeEvent.Dispatch();
+        }
+    }
+
+    void OnCutScene() {
+        if(Input.anyKeyDown) {
+            NextCutEvent.Dispatch();
         }
     }
 }
