@@ -29,6 +29,8 @@ public class SoundManager : MonoBehaviour {
         bgmSource.volume = PlayerPrefs.GetFloat("BGM Volume", 0.5f);
         sfxSource.volume = PlayerPrefs.GetFloat("SFX Volume", 0.5f);
 
+        bgmSource.loop = true;
+
         bgmDic = new Dictionary<string, AudioClip>();
         foreach(AudioClip a in BGMList) {
             bgmDic.Add(a.name, a);
