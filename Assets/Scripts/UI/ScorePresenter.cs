@@ -21,7 +21,7 @@ public class ScorePresenter : MonoBehaviour {
     public void SetScoreText() {
         int score = ScoreManager.Score;
 
-        ScoreText.text = $"{score:0000}";
+        ScoreText.text = $"{score}";
 
         if(score >= GameManager.GoldScore) {
             ScoreText.colorGradientPreset = GoldGradient;

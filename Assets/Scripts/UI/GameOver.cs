@@ -32,8 +32,8 @@ public class GameOver : MonoBehaviour {
         int score = ScoreManager.Score;
         int bestScore = ScoreManager.HighScore;
 
-        ScoreText.text = $"{score:0000}";
-        BestScoreText.text = $"{bestScore:0000}";
+        ScoreText.text = $"{score}";
+        BestScoreText.text = $"{bestScore}";
 
         if(score >= GameManager.GoldScore) {
             Gold.SetActive(true);
