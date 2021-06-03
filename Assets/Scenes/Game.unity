@@ -2603,6 +2603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSlider: {fileID: 1687973697}
   SFXSlider: {fileID: 261604246}
+  EndingButton: {fileID: 733738927}
   SoundManager: {fileID: 1353938714}
 --- !u!1 &593052615
 GameObject:
@@ -7703,7 +7704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1368032554682127898, guid: 5cc93628bc4cae645a164a9440f9cf06,
+  m_Sprite: {fileID: 8089686254986443690, guid: 5cc93628bc4cae645a164a9440f9cf06,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -7765,7 +7766,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 733738925}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2136627692}
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2136627691}
+        m_MethodName: set_isReplay
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &734864167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9670,7 +9693,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 960090027
-  m_SortingOrder: 10
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!224 &1114088410
 RectTransform:
@@ -9837,7 +9860,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1157272560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1419809471}
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1419809472}
+        m_MethodName: set_isReplay
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1159626745
 GameObject:
   m_ObjectHideFlags: 0
@@ -10392,7 +10437,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 960090027
-  m_SortingOrder: 10
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!224 &1261206683
 RectTransform:
@@ -11096,7 +11141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f590a6f006b4a4d969bcdaff326c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReplay: 0
   CutStartEvent:
     m_PersistentCalls:
       m_Calls:
@@ -14459,7 +14503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f590a6f006b4a4d969bcdaff326c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReplay: 0
   CutStartEvent:
     m_PersistentCalls:
       m_Calls:

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class CutScene : MonoBehaviour {
-    [HideInInspector] public bool isReplay;
+    [HideInInspector] public bool isReplay { get; set; }
 
     [SerializeField] UnityEvent CutStartEvent;
     [SerializeField] UnityEvent CutEndEvent;
@@ -35,5 +35,6 @@ public class CutScene : MonoBehaviour {
         else {
             if(SceneEndEvent != null) SceneEndEvent.Invoke();
         }
+        isReplay = false;
     }
 }

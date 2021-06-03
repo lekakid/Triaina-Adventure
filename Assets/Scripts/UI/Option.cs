@@ -8,11 +8,17 @@ public class Option : MonoBehaviour {
     public Slider BGMSlider;
     public Slider SFXSlider;
 
+    public Button EndingButton;
+
     [Header("Objects")]
     public SoundManager SoundManager;
 
     void Start() {
         BGMSlider.value = Mathf.Max(SoundManager.BGMVolume, BGMSlider.minValue);
         SFXSlider.value = Mathf.Max(SoundManager.SFXVolume, SFXSlider.minValue);
+
+        if(PlayerPrefs.GetInt("EndingVisited", 0) > 0) {
+            EndingButton.interactable = true;
+        }
     }
 }
