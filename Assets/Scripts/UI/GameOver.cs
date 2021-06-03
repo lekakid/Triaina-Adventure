@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class GameOver : MonoBehaviour {
@@ -8,6 +9,7 @@ public class GameOver : MonoBehaviour {
 	[SerializeField] GameObject Gold;
     [SerializeField] GameObject Silver;
     [SerializeField] GameObject Bronze;
+    [SerializeField] CanvasView Ending;
 
     [Header("Text")]
     [SerializeField] TextMeshProUGUI ScoreText;
@@ -62,6 +64,13 @@ public class GameOver : MonoBehaviour {
         else if(bestScore >= GameManager.BronzeScore) {
             BestScoreText.colorGradientPreset = BronzeGradient;
             BestScoreText.fontMaterial = BronzeOutline;
+        }
+    }
+
+    public void ShowEnding() {
+        int score = ScoreManager.Score;
+        if(PlayerPrefs.GetInt("EndingVisited", 0) == 0 && score >= GameManager.EndingScore) {
+            Ending.Show();
         }
     }
 

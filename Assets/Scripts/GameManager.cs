@@ -13,15 +13,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] int _bronzeScore = 30;
     public static int BronzeScore;
 
-    [Header("Events")]
-    [SerializeField] GameEventSO TitleEvent;
-
     [Header("Data Container")]
 	[SerializeField] ScoreManager ScoreManager;
-
-    public enum GameState { TITLE, OPENING, INIT, PLAY, PAUSE, ENDING, GAMEOVER }
-    public static GameState State { get; private set; }
-    public static GameState PrevState { get; private set; }
 
     void Awake() {
         EndingScore = _endingScore;
@@ -30,54 +23,12 @@ public class GameManager : MonoBehaviour {
         BronzeScore = _bronzeScore;
     }
 
-    void Start() {
-        TitleEvent.Dispatch();
-    }
-
-    void SetState(GameState nextState) {
-        PrevState = State;
-        State = nextState;
-    }
-
-    public void Initialize() {
-        Time.timeScale = 1f;
-        SetState(GameState.INIT);
-        ScoreManager.ResetScore();
-    }
-
-    public void Title() {
-        Time.timeScale = 1f;
-        SetState(GameState.TITLE);
-    }
-    
-    public void Opening() {
-        SetState(GameState.OPENING);
-    }
-
-    public void Ending() {
-        Time.timeScale = 0f;
-        SetState(GameState.ENDING);
-    }
-
-    public void GameStart() {
-        Time.timeScale = 1f;
-        SetState(GameState.PLAY);
-    }
-
     public void Pause() {
         Time.timeScale = 0f;
-        SetState(GameState.PAUSE);
     }
 
     public void Resume() {
         Time.timeScale = 1f;
-        SetState(GameState.PLAY);
-    }
-
-    public void GameOver() {
-        Time.timeScale = 0f;
-        SetState(GameState.GAMEOVER);
-        ScoreManager.SaveHighScore();
     }
 
     public void Quit() {

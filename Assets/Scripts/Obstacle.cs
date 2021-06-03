@@ -32,8 +32,6 @@ public class Obstacle : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if(GameManager.State != GameManager.GameState.PLAY) return;
-        
         if(other.CompareTag("Player")) {
             ScoreManager.AddScore();
             Gem.SetActive(false);

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Title : MonoBehaviour {
-    [SerializeField] GameEventSO OpeningEvent;
-    [SerializeField] GameEventSO InitializeEvent;
+    [SerializeField] UnityEvent FirstPlayEvent;
+    [SerializeField] UnityEvent NormalPlayEvent;
 
     Animator animator;
 
@@ -12,13 +13,12 @@ public class Title : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-	public void OnClickPlay() {
+	public void Play() {
         if (PlayerPrefs.GetInt("OpeningVisited", 0) > 0) {
-            InitializeEvent.Dispatch();
+            NormalPlayEvent.Invoke();
         }
         else {
-            OpeningEvent.Dispatch();
+            FirstPlayEvent.Invoke();
         }
-        animator.Play("Hide");
     }
 }

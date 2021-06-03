@@ -10,12 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpPower = 10f;
 
     [Header("Events")]
+    [SerializeField] GameEventSO StartEvent;
     [SerializeField] GameEventSO GameOverEvent;
-    [SerializeField] GameEventSO EndingEvent;
 
     [Header("Objects")]
     [SerializeField] SoundManager SoundManager;
-    [SerializeField] ScoreManager ScoreManager;
 
     // Component
     new Rigidbody2D rigidbody;
@@ -31,12 +30,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) {
         if(other.collider.CompareTag("Obstacle")) {
-            if(PlayerPrefs.GetInt("EndingVisited", 0) == 0 && ScoreManager.Score >= GameManager.EndingScore) {
-                EndingEvent.Dispatch();
-            }
-            else {
-                GameOverEvent.Dispatch();
-            }
+            GameOverEvent.Dispatch();
         }
     }
 
@@ -45,7 +39,11 @@ public class Player : MonoBehaviour
     }
 
     public void Jump() {
-        if(!rigidbody.simulated) return;
+        if(Time.timeScale < 1f) return;
+        
+        if(!rigidbody.simulated) {
+            StartEvent.Dispatch();
+        }
         
         rigidbody.velocity = Vector2.up * jumpPower;
         PlayRandomJumpSFX();

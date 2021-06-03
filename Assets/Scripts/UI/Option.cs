@@ -8,28 +8,11 @@ public class Option : MonoBehaviour {
     public Slider BGMSlider;
     public Slider SFXSlider;
 
-    [Header("Events")]
-    public GameEventSO TitleEvent;
-    public GameEventSO InitializeEvent;
-    public GameEventSO ResumeEvent;
-
     [Header("Objects")]
     public SoundManager SoundManager;
 
     void Start() {
         BGMSlider.value = Mathf.Max(SoundManager.BGMVolume, BGMSlider.minValue);
         SFXSlider.value = Mathf.Max(SoundManager.SFXVolume, SFXSlider.minValue);
-    }
-
-    public void ClickOnResume() {
-        if(GameManager.PrevState == GameManager.GameState.TITLE) {
-            TitleEvent.Dispatch();
-        }
-        if(GameManager.PrevState == GameManager.GameState.INIT) {
-            InitializeEvent.Dispatch();
-        }
-        if(GameManager.PrevState == GameManager.GameState.PLAY) {
-            ResumeEvent.Dispatch();
-        }
     }
 }

@@ -495,7 +495,8 @@ AnimationClip:
   - time: 0.33333334
     functionName: UnlockInput
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11400000, guid: a13533f0d889ac5478138dbfb82aba6b,
+      type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
