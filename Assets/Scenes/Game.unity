@@ -10574,6 +10574,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 238cdfe038b80b541a0074cc6a4481f4, type: 3}
   - {fileID: 8300000, guid: ed667dee365bc2a45997fa553d7c3ec8, type: 3}
   - {fileID: 8300000, guid: 7525e2e39ef736a408122a0abcd0db1b, type: 3}
+  - {fileID: 8300000, guid: ac04d5e633199f44989e3b3ae5b37aae, type: 3}
 --- !u!4 &1353938715
 Transform:
   m_ObjectHideFlags: 0
@@ -14015,6 +14016,7 @@ GameObject:
   - component: {fileID: 2042640053}
   - component: {fileID: 2042640052}
   - component: {fileID: 2042640054}
+  - component: {fileID: 2042640055}
   m_Layer: 0
   m_Name: ObstaclePool
   m_TagString: Untagged
@@ -14146,6 +14148,33 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2042640055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042640049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95696bb8e027eb4e82e590a5fa1e39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventSO: {fileID: 11400000, guid: 7da475f9add0a234684e2ddf04eeb040, type: 2}
+  EventCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1353938714}
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Coin
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2088087247

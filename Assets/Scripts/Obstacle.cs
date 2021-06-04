@@ -11,6 +11,9 @@ public class Obstacle : MonoBehaviour {
     [Header("Data Container")]
     [SerializeField] ScoreManager ScoreManager;
 
+    [Header("Events")]
+    [SerializeField] GameEventSO GemEvent;
+
     ObstaclePool obstaclePool;
 
     float holeHeight;
@@ -35,6 +38,7 @@ public class Obstacle : MonoBehaviour {
         if(other.CompareTag("Player")) {
             ScoreManager.AddScore();
             Gem.SetActive(false);
+            GemEvent.Dispatch();
         }
     }
 

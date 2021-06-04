@@ -324,6 +324,7 @@ MonoBehaviour:
   DownsideRenderer: {fileID: 6466524108082682629}
   Gem: {fileID: 1204898093370611175}
   ScoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
+  GemEvent: {fileID: 11400000, guid: 7da475f9add0a234684e2ddf04eeb040, type: 2}
 --- !u!61 &2829466446495323808
 BoxCollider2D:
   m_ObjectHideFlags: 0
