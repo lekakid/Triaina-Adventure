@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class Title : MonoBehaviour {
+    [Header("Game Events")]
+    [SerializeField] GameEventSO InputLockEvent;
+    [SerializeField] GameEventSO InputUnlockEvent;
+
+    [Header("Unity Events")]
     [SerializeField] UnityEvent FirstPlayEvent;
     [SerializeField] UnityEvent NormalPlayEvent;
 
@@ -20,5 +25,13 @@ public class Title : MonoBehaviour {
         else {
             FirstPlayEvent.Invoke();
         }
+    }
+
+    public void LockInput() {
+        InputLockEvent.Dispatch();
+    }
+
+    public void UnlockInput() {
+        InputUnlockEvent.Dispatch();
     }
 }
