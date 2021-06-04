@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     // Component
     new Rigidbody2D rigidbody;
+    [SerializeField] ParticleSystem particle;
 
     // Variable
     Vector2 defaultPos;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         
         rigidbody.velocity = Vector2.up * jumpPower;
         PlayRandomJumpSFX();
+        particle.Play();
     }
 
     void PlayRandomJumpSFX() {
