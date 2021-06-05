@@ -8,9 +8,8 @@ public class Title : MonoBehaviour {
     [SerializeField] GameEventSO InputLockEvent;
     [SerializeField] GameEventSO InputUnlockEvent;
 
-    [Header("Unity Events")]
-    [SerializeField] UnityEvent FirstPlayEvent;
-    [SerializeField] UnityEvent NormalPlayEvent;
+    [Header("View")]
+    [SerializeField] CanvasView Opening;
 
     Animator animator;
 
@@ -18,12 +17,12 @@ public class Title : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
-	public void Play() {
-        if (PlayerPrefs.GetInt("OpeningVisited", 0) > 0) {
-            NormalPlayEvent.Invoke();
+    public void ShowOpening() {
+        if (PlayerPrefs.GetInt("OpeningVisited", 0) == 0) {
+            Opening.Show();
         }
         else {
-            FirstPlayEvent.Invoke();
+            animator.Play("Intro");
         }
     }
 

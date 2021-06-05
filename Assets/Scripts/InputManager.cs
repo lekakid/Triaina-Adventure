@@ -8,7 +8,8 @@ public class InputManager : MonoBehaviour {
         TITLE, CUTSCENE, PLAY, GAMEOVER
     }
 
-    Category currentCategory;
+    Category? currentCategory;
+    Category? prevCategory;
     [System.Serializable]
     public class InputEvent {
         public Category Category;
@@ -17,11 +18,11 @@ public class InputManager : MonoBehaviour {
     }
 
     [SerializeField] List<InputEvent> EventList;
-    Dictionary<Category, InputEvent> EventDictionary;
+    Dictionary<Category?, InputEvent> EventDictionary;
     InputEvent currentInputEvent;
 
     void Awake() {
-        EventDictionary = new Dictionary<Category, InputEvent>();
+        EventDictionary = new Dictionary<Category?, InputEvent>();
 
         foreach(InputEvent e in EventList) {
             EventDictionary.Add(e.Category, e);
@@ -47,8 +48,16 @@ public class InputManager : MonoBehaviour {
         Category c;
         
         if(Enum.TryParse<Category>(category, out c)) {
+            prevCategory = currentCategory;
             currentCategory = c;
             currentInputEvent = EventDictionary[c];
+        }
+    }
+
+    public void SetPrevCategory() {
+        if(prevCategory != null) {
+            currentCategory = prevCategory;
+            currentInputEvent = EventDictionary[prevCategory];
         }
     }
 
