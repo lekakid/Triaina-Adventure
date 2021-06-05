@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class CutScene : MonoBehaviour {
     [HideInInspector] public bool isReplay { get; set; }
+    [SerializeField] SoundManager SoundManager;
 
     [SerializeField] UnityEvent CutStartEvent;
     [SerializeField] UnityEvent CutEndEvent;
@@ -36,5 +37,9 @@ public class CutScene : MonoBehaviour {
             if(SceneEndEvent != null) SceneEndEvent.Invoke();
         }
         isReplay = false;
+    }
+
+    public void PlaySFX(string name) {
+        SoundManager.PlaySFX(name);
     }
 }

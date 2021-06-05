@@ -15342,6 +15342,7 @@ MonoBehaviour:
   BGMList:
   - {fileID: 8300000, guid: 61c70f98b117fcf4d871a306970a888f, type: 3}
   - {fileID: 8300000, guid: 24843e9f4215a4c40a00947109edf98d, type: 3}
+  - {fileID: 8300000, guid: b906478b386d6724babbc385b268402c, type: 3}
   SFXList:
   - {fileID: 8300000, guid: b24049d1908d22b4f995b694c26e9c36, type: 3}
   - {fileID: 8300000, guid: f943fbdbad3bc794c89cacfde4fbf1ce, type: 3}
@@ -15351,6 +15352,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ed667dee365bc2a45997fa553d7c3ec8, type: 3}
   - {fileID: 8300000, guid: 7525e2e39ef736a408122a0abcd0db1b, type: 3}
   - {fileID: 8300000, guid: ac04d5e633199f44989e3b3ae5b37aae, type: 3}
+  - {fileID: 8300000, guid: 87f34ce43a6f96043b1bcaa40cd8bb1e, type: 3}
+  - {fileID: 8300000, guid: dc7b22038b47d1a43a0343bd9279b7f6, type: 3}
 --- !u!4 &1353938715
 Transform:
   m_ObjectHideFlags: 0
@@ -15918,6 +15921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f590a6f006b4a4d969bcdaff326c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundManager: {fileID: 0}
   CutStartEvent:
     m_PersistentCalls:
       m_Calls:
@@ -16484,7 +16488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -241, y: 336}
+  m_AnchoredPosition: {x: -241, y: 316}
   m_SizeDelta: {x: 459, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1583658455
@@ -17829,7 +17833,7 @@ Animator:
   m_GameObject: {fileID: 1771653866}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 456055cae4b3c8e49944d2c3b8dd075e, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -19628,6 +19632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f590a6f006b4a4d969bcdaff326c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundManager: {fileID: 1353938714}
   CutStartEvent:
     m_PersistentCalls:
       m_Calls:
@@ -19640,6 +19645,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1353938714}
+        m_MethodName: PlayCutBGM
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Ending
           m_BoolArgument: 0
         m_CallState: 2
   CutEndEvent:
@@ -19706,6 +19722,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1353938714}
+        m_MethodName: StopCutBGM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   SceneEndOnReplay:
     m_PersistentCalls:
       m_Calls:
@@ -19733,6 +19760,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 856480040}
         m_MethodName: SetPrevCategory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1353938714}
+        m_MethodName: StopCutBGM
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
