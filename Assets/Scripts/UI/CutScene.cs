@@ -42,4 +42,8 @@ public class CutScene : MonoBehaviour {
     public void PlaySFX(string name) {
         SoundManager.PlaySFX(name);
     }
+
+    public void StopCutBGM(float duration) {
+        SoundManager.StopCutBGM(duration);
+    }
 }

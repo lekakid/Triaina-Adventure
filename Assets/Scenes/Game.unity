@@ -15343,6 +15343,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 61c70f98b117fcf4d871a306970a888f, type: 3}
   - {fileID: 8300000, guid: 24843e9f4215a4c40a00947109edf98d, type: 3}
   - {fileID: 8300000, guid: b906478b386d6724babbc385b268402c, type: 3}
+  - {fileID: 8300000, guid: dd2b4f318dcf54346b25197f93c45b82, type: 3}
   SFXList:
   - {fileID: 8300000, guid: b24049d1908d22b4f995b694c26e9c36, type: 3}
   - {fileID: 8300000, guid: f943fbdbad3bc794c89cacfde4fbf1ce, type: 3}
@@ -15921,7 +15922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f590a6f006b4a4d969bcdaff326c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundManager: {fileID: 0}
+  SoundManager: {fileID: 1353938714}
   CutStartEvent:
     m_PersistentCalls:
       m_Calls:
@@ -15973,6 +15974,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1353938714}
+        m_MethodName: PlayCutBGM
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Opening
           m_BoolArgument: 0
         m_CallState: 2
   SceneEndEvent:
@@ -19722,17 +19734,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1353938714}
-        m_MethodName: StopCutBGM
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   SceneEndOnReplay:
     m_PersistentCalls:
       m_Calls:
@@ -19760,17 +19761,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 856480040}
         m_MethodName: SetPrevCategory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1353938714}
-        m_MethodName: StopCutBGM
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

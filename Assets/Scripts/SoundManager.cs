@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour {
     Dictionary<string, AudioClip> bgmDic;
     Dictionary<string, AudioClip> sfxDic;
 
+    IEnumerator StopCutBGMIEnumerator;
+
     public float BGMVolume {
         get { return bgmSource.volume; } 
         set {
@@ -95,9 +97,34 @@ public class SoundManager : MonoBehaviour {
         bgmSource.Stop();
     }
 
-    public void StopCutBGM() {
-        cutSource.clip = null;
-        cutSource.Stop();
+    public void StopCutBGM(float duration) {
+        if(duration == 0f) {
+            cutSource.clip = null;
+            cutSource.Stop();
+        }
+
+        StopCutBGMIEnumerator = StopCutBGMRoutine(duration);
+        StartCoroutine(StopCutBGMIEnumerator);
+    }
+
+    IEnumerator StopCutBGMRoutine(float duration) {
+        float playedTime = 0f;
+        float initialVolume = cutSource.volume;
+
+        while(true) {
+            float volume = Mathf.Lerp(initialVolume, 0f, playedTime / duration);
+            cutSource.volume = volume;
+
+            playedTime += Time.unscaledDeltaTime;
+            if(playedTime >= duration) {
+                cutSource.clip = null;
+                cutSource.volume = initialVolume;
+                cutSource.Stop();
+                StopCoroutine(StopCutBGMIEnumerator);
+            }
+
+            yield return null;
+        }
     }
 
     public void PlaySFX(string name) {
