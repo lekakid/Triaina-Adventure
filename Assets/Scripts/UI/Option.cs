@@ -16,7 +16,9 @@ public class Option : MonoBehaviour {
     void Start() {
         BGMSlider.value = Mathf.Max(SoundManager.BGMVolume, BGMSlider.minValue);
         SFXSlider.value = Mathf.Max(SoundManager.SFXVolume, SFXSlider.minValue);
+    }
 
+    public void TryUnlockEnding() {
         if(PlayerPrefs.GetInt("EndingVisited", 0) > 0) {
             EndingButton.interactable = true;
         }
