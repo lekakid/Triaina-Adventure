@@ -6,6 +6,7 @@ using TMPro;
 public class ScorePresenter : MonoBehaviour {
     [SerializeField] ScoreManager ScoreManager;
 	[SerializeField] TextMeshProUGUI ScoreText;
+	[SerializeField] TextMeshProUGUI TotalScoreText;
     [Space]
     [SerializeField] TMP_ColorGradient GoldGradient;
     [SerializeField] TMP_ColorGradient SilverGradient;
@@ -20,8 +21,10 @@ public class ScorePresenter : MonoBehaviour {
 
     public void SetScoreText() {
         int score = ScoreManager.Score;
+        int totalScore = ScoreManager.TotalScore;
 
         ScoreText.text = $"{score}";
+        TotalScoreText.text = $"{totalScore}";
 
         if(score >= GameManager.GoldScore) {
             ScoreText.colorGradientPreset = GoldGradient;

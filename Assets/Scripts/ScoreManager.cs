@@ -7,11 +7,16 @@ using UnityEngine.Events;
 public class ScoreManager : ScriptableObject {
 	public int Score { get; private set; }
     public int HighScore { get; private set; }
+    public int TotalScore { get; private set; }
+
+    private const string HIGH_SCORE = "HighScore";
+    private const string TOTAL_SCORE = "TotalScore";
+    private const string EZ = "_ez";
 
     UnityEvent OnScoreChange = new UnityEvent();
 
     void OnEnable() {
-        HighScore = PlayerPrefs.GetInt("HighScore", 0);
+        LoadScore();
     }
 
     void OnDisable() {
@@ -19,8 +24,16 @@ public class ScoreManager : ScriptableObject {
         HighScore = 0;
     }
 
+    public void LoadScore() {
+        HighScore = PlayerPrefs.GetInt($"{HIGH_SCORE}{(GameManager.EzMode ? EZ : "")}", 0);
+        TotalScore = PlayerPrefs.GetInt($"{TOTAL_SCORE}{(GameManager.EzMode ? EZ : "")}", 0);
+
+        OnScoreChange.Invoke();
+    }
+
     public void AddScore() {
         Score += 1;
+        TotalScore += 1;
         if(Score > HighScore) {
             HighScore = Score;
         }
@@ -33,7 +46,8 @@ public class ScoreManager : ScriptableObject {
     }
 
     public void SaveHighScore() {
-        PlayerPrefs.SetInt("HighScore", HighScore);
+        PlayerPrefs.SetInt($"{HIGH_SCORE}{(GameManager.EzMode ? EZ : "")}", HighScore);
+        PlayerPrefs.SetInt($"{TOTAL_SCORE}{(GameManager.EzMode ? EZ : "")}", TotalScore);
     }
 
     public void AddScoreListener(UnityAction listener) {

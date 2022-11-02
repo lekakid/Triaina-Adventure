@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    private const string EZ_MODE = "EzMode";
+
     [Header("Settings")]
     [SerializeField] int _endingScore = 100;
     public static int EndingScore;
@@ -13,14 +15,27 @@ public class GameManager : MonoBehaviour {
     [SerializeField] int _bronzeScore = 30;
     public static int BronzeScore;
 
+    public static bool EzMode {
+        get {
+            return PlayerPrefs.GetInt(EZ_MODE, 0) == 1;
+        }
+        set {
+            PlayerPrefs.SetInt(EZ_MODE, value ? 1 : 0);
+            ScoreManager.LoadScore();
+        }
+    }
+
     [Header("Data Container")]
-	[SerializeField] ScoreManager ScoreManager;
+    public static ScoreManager ScoreManager;
+	[SerializeField] ScoreManager _scoreManager;
 
     void Awake() {
         EndingScore = _endingScore;
         GoldScore = _goldScore;
         SilverScore = _silverScore;
         BronzeScore = _bronzeScore;
+
+        ScoreManager = _scoreManager;
     }
 
     public void Pause() {
