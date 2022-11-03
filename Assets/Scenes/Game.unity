@@ -19932,6 +19932,8 @@ MonoBehaviour:
   _obstacleBorderX: -2
   _obstacleMaxY: 15
   _obstacleMinY: 4
+  _holeHeight: 4
+  _EzHoleHeight: 5
 --- !u!4 &2042640051
 Transform:
   m_ObjectHideFlags: 0

@@ -13,11 +13,14 @@ public class ObstaclePool : MonoBehaviour {
     [SerializeField] float _obstacleBorderX = -12f;
     [SerializeField, Range(8f, 16f)] float _obstacleMaxY = 16f;
     [SerializeField, Range(0f, 8f)] float _obstacleMinY = 0f;
+    [SerializeField, Range(3f, 8f)] float _holeHeight = 4f;
+    [SerializeField, Range(3f, 8f)] float _EzHoleHeight = 6f;
 
     public float ObstacleSpeed { get { return _obstacleSpeed; } }
     public float ObstacleBorderX { get { return _obstacleBorderX; } }
     public float ObstacleMaxY { get { return _obstacleMaxY; } }
     public float ObstacleMinY { get { return _obstacleMinY; } }
+    public float HoleHeight { get { return GameManager.EzMode ? _EzHoleHeight : _holeHeight; } }
     public float lastHeight { get; private set; }
 
     Queue<Obstacle> pool = new Queue<Obstacle>();
@@ -27,6 +30,7 @@ public class ObstaclePool : MonoBehaviour {
         for(int i = 0; i < PoolCount; i++) {
             Obstacle obstacle = Instantiate(ObstaclePrefab, transform).GetComponent<Obstacle>();
             obstacle.SetPool(this);
+            obstacle.Reset();
             pool.Enqueue(obstacle);
         }
         lastHeight = Camera.main.orthographicSize;

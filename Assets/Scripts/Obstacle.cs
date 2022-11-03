@@ -20,10 +20,6 @@ public class Obstacle : MonoBehaviour {
 
     bool isMove;
 
-    void Awake() {
-        holeHeight = UpsideRenderer.bounds.min.y - DownsideRenderer.bounds.max.y;
-    }
-
     void Update() {
         if(isMove) {
             transform.Translate(Vector2.left * obstaclePool.ObstacleSpeed * Time.deltaTime);
@@ -69,7 +65,10 @@ public class Obstacle : MonoBehaviour {
     }
 
     public void Reset() {
-        transform.position = obstaclePool.transform.position;
+        holeHeight = obstaclePool.HoleHeight;
+        UpsideRenderer.transform.localPosition = new Vector3(0, (UpsideRenderer.size.y + holeHeight) * 0.5f, 0);
+        DownsideRenderer.transform.localPosition = new Vector3(0, (UpsideRenderer.size.y + holeHeight) * -0.5f, 0);
+        transform.localPosition = Vector3.zero;
         Gem.SetActive(true);
         isMove = false;
     }
