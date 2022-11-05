@@ -15,16 +15,19 @@ public class Player : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] SoundManager SoundManager;
+    [SerializeField] RuntimeAnimatorController specialController;
 
     // Component
     new Rigidbody2D rigidbody;
     [SerializeField] ParticleSystem particle;
+    Animator animator;
 
     // Variable
     Vector2 defaultPos;
 
     void Awake() {
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         defaultPos = transform.position;
     }
@@ -37,6 +40,9 @@ public class Player : MonoBehaviour
 
     public void Reset() {
         transform.position = defaultPos;
+        if(GameManager.isSpecial) {
+            animator.runtimeAnimatorController = specialController;
+        }
     }
 
     public void Jump() {

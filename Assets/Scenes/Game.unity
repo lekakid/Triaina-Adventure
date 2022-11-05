@@ -8309,6 +8309,7 @@ MonoBehaviour:
   _goldScore: 70
   _silverScore: 30
   _bronzeScore: 0
+  _achievementScore: 150
   _scoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
 --- !u!4 &774154528
 Transform:
@@ -17174,6 +17175,7 @@ MonoBehaviour:
   StartEvent: {fileID: 11400000, guid: 667723b4f6d451d41b8feb507d5f8d55, type: 2}
   GameOverEvent: {fileID: 11400000, guid: 3267ebda7888f0340b6b0d159bb341fe, type: 2}
   SoundManager: {fileID: 1353938714}
+  specialController: {fileID: 22100000, guid: 035ed34453db3ae4bb8c882772c31ecb, type: 2}
   particle: {fileID: 861963674}
 --- !u!50 &1583881015
 Rigidbody2D:

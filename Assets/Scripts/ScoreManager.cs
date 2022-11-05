@@ -8,6 +8,11 @@ public class ScoreManager : ScriptableObject {
 	public int Score { get; private set; }
     public int HighScore { get; private set; }
     public int TotalScore { get; private set; }
+    public int AchievementScore {
+        get {
+            return PlayerPrefs.GetInt(TOTAL_SCORE, 0);
+        }
+    }
 
     private const string HIGH_SCORE = "HighScore";
     private const string TOTAL_SCORE = "TotalScore";

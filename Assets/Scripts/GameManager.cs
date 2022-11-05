@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     public static int SilverScore;
     [SerializeField] int _bronzeScore = 30;
     public static int BronzeScore;
+    [SerializeField] int _achievementScore = 150;
+    public static int AchievementScore;
 
     public static bool EzMode {
         get {
@@ -22,6 +24,12 @@ public class GameManager : MonoBehaviour {
         set {
             PlayerPrefs.SetInt(EZ_MODE, value ? 1 : 0);
             ScoreManager.LoadScore();
+        }
+    }
+
+    public static bool isSpecial {
+        get {
+            return ScoreManager.AchievementScore >= AchievementScore;
         }
     }
 
@@ -34,6 +42,7 @@ public class GameManager : MonoBehaviour {
         GoldScore = _goldScore;
         SilverScore = _silverScore;
         BronzeScore = _bronzeScore;
+        AchievementScore = _achievementScore;
 
         ScoreManager = _scoreManager;
     }
