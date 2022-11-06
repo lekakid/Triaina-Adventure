@@ -25,6 +25,7 @@ public class ScorePresenter : MonoBehaviour {
 
         ScoreText.text = $"{score}";
         TotalScoreText.text = $"{totalScore}";
+        TotalScoreText.colorGradientPreset = GameManager.EzMode ? SilverGradient : GoldGradient;
 
         if(score >= GameManager.GoldScore) {
             ScoreText.colorGradientPreset = GoldGradient;
