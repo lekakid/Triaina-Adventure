@@ -14,6 +14,7 @@ public class GameOver : MonoBehaviour {
     [Header("Text")]
     [SerializeField] TextMeshProUGUI ScoreText;
     [SerializeField] TextMeshProUGUI BestScoreText;
+    [SerializeField] TextMeshProUGUI TotalScoreText;
 
     [Header("Scriptable Object")]
     [SerializeField] ScoreManager ScoreManager;
@@ -33,9 +34,11 @@ public class GameOver : MonoBehaviour {
 
         int score = ScoreManager.Score;
         int bestScore = ScoreManager.HighScore;
+        int totalScore = ScoreManager.TotalScore;
 
         ScoreText.text = $"{score}";
         BestScoreText.text = $"{bestScore}";
+        TotalScoreText.text = $"{totalScore}";
 
         if(score >= GameManager.GoldScore) {
             Gold.SetActive(true);
