@@ -8307,12 +8307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2981a693c9694439d67d1e30ee059a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _specialScore: 150
   _endingScore: 70
   _goldScore: 70
   _silverScore: 30
   _bronzeScore: 0
-  _achievementScore: 150
+  _achievementScore: 500
   _scoreManager: {fileID: 11400000, guid: 0f1a64a2925b1da409ffc34e2f4f1780, type: 2}
 --- !u!4 &774154528
 Transform:
