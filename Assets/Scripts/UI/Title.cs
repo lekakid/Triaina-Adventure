@@ -11,6 +11,10 @@ public class Title : MonoBehaviour {
     [Header("View")]
     [SerializeField] CanvasView Opening;
 
+    [Header("Animator")]
+    public RuntimeAnimatorController defaultAnimator;
+    public RuntimeAnimatorController specialAnimator;
+
     Animator animator;
 
     void Awake() {
@@ -22,6 +26,7 @@ public class Title : MonoBehaviour {
             Opening.Show();
         }
         else {
+            animator.runtimeAnimatorController = GameManager.isSpecial ? specialAnimator : defaultAnimator;
             animator.Play("Intro");
         }
     }

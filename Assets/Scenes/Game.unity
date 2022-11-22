@@ -1445,7 +1445,7 @@ Animator:
   m_GameObject: {fileID: 293233453}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dfd3b11c29b75b541bf64bbd2d3e6afc, type: 2}
+  m_Controller: {fileID: 22100000, guid: 947a83af4abf48941a148ac43e5f8270, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1469,6 +1469,8 @@ MonoBehaviour:
   InputLockEvent: {fileID: 11400000, guid: 2397b3b9dce93804da2d54249bee218b, type: 2}
   InputUnlockEvent: {fileID: 11400000, guid: a13533f0d889ac5478138dbfb82aba6b, type: 2}
   Opening: {fileID: 1419809471}
+  defaultAnimator: {fileID: 9100000, guid: dfd3b11c29b75b541bf64bbd2d3e6afc, type: 2}
+  specialAnimator: {fileID: 22100000, guid: 947a83af4abf48941a148ac43e5f8270, type: 2}
 --- !u!1 &305618485
 GameObject:
   m_ObjectHideFlags: 0
