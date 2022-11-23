@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] SoundManager SoundManager;
+    [SerializeField] RuntimeAnimatorController defaultController;
     [SerializeField] RuntimeAnimatorController specialController;
 
     // Component
@@ -40,9 +41,11 @@ public class Player : MonoBehaviour
 
     public void Reset() {
         transform.position = defaultPos;
-        if(GameManager.isSpecial) {
-            animator.runtimeAnimatorController = specialController;
-        }
+        RefreshSkin();
+    }
+
+    public void RefreshSkin() {
+        animator.runtimeAnimatorController = GameManager.isSpecial ? specialController : defaultController;
     }
 
     public void Jump() {

@@ -26,7 +26,7 @@ public class Title : MonoBehaviour {
             Opening.Show();
         }
         else {
-            animator.runtimeAnimatorController = GameManager.isSpecial ? specialAnimator : defaultAnimator;
+            animator.runtimeAnimatorController = GameManager.achieveGoal ? specialAnimator : defaultAnimator;
             animator.Play("Intro");
         }
     }

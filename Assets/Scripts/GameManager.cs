@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     private const string EZ_MODE = "EzMode";
+    private const string DISABLE_SKIN = "DISABLE_SPECIAL_SKIN";
 
     [Header("Settings")]
     [SerializeField] int _endingScore = 100;
@@ -27,9 +28,24 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public static bool isSpecial {
+    public static bool achieveGoal {
         get {
             return ScoreManager.AchievementScore >= AchievementScore;
+        }
+    }
+
+    public static bool disableSpecialSkin {
+        get {
+            return PlayerPrefs.GetInt(DISABLE_SKIN, 0) == 1;
+        }
+        set {
+            PlayerPrefs.SetInt(DISABLE_SKIN, value ? 1 : 0);
+        }
+    }
+
+    public static bool isSpecial {
+        get {
+            return achieveGoal && !disableSpecialSkin;
         }
     }
 

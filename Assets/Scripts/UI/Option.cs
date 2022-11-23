@@ -8,6 +8,7 @@ public class Option : MonoBehaviour {
     public Slider BGMSlider;
     public Slider SFXSlider;
     public Toggle EzModeToggle;
+    public Toggle DisableSpecialSkinToggle;
 
     public Button EndingButton;
 
@@ -17,17 +18,17 @@ public class Option : MonoBehaviour {
 
     [Header("Dispatcher")]
     public GameEventSO ResetEvent;
+    public GameEventSO RefreshSkinEvent;
 
-    void Start() {
+    void OnEnable() {
         BGMSlider.value = Mathf.Max(SoundManager.BGMVolume, BGMSlider.minValue);
         SFXSlider.value = Mathf.Max(SoundManager.SFXVolume, SFXSlider.minValue);
-        EzModeToggle.SetIsOnWithoutNotify(GameManager.EzMode);
-    }
 
-    public void TryUnlockEnding() {
-        if(PlayerPrefs.GetInt("EndingVisited", 0) > 0) {
-            EndingButton.interactable = true;
-        }
+        EzModeToggle.SetIsOnWithoutNotify(GameManager.EzMode);
+        DisableSpecialSkinToggle.interactable = GameManager.achieveGoal;
+        DisableSpecialSkinToggle.SetIsOnWithoutNotify(GameManager.disableSpecialSkin);
+
+        EndingButton.interactable = PlayerPrefs.GetInt("EndingVisited", 0) > 0;
     }
 
     public void OnChangeEzMode(bool value) {
@@ -45,6 +46,11 @@ public class Option : MonoBehaviour {
         GameManager.EzMode = !GameManager.EzMode;
         View.Hide();
         ResetEvent.Dispatch();
+    }
+
+    public void OnChangeSkin(bool value) {
+        GameManager.disableSpecialSkin = value;
+        RefreshSkinEvent.Dispatch();
     }
 
     public void OnClickQuit() {
